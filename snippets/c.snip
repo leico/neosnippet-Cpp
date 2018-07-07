@@ -1,0 +1,369 @@
+
+
+
+#### include 
+snippet #inc<
+alias   inc<
+options head
+abbr    C style include< >
+  #include <${1:stdio}.h>${0}
+
+snippet #inc"
+alias   inc"
+options head
+abbr    C style include " "
+  #include "${1:#:header file}"${0} 
+
+
+
+
+#### prefix
+
+snippet const
+alias   con
+abbr    const prefix
+  const ${0}
+
+
+snippet static
+alias   sta
+abbr    static prefix
+  static ${0}
+
+
+snippet extern
+alias   ext
+abbr    extern prefix
+  extern ${0}
+
+
+
+
+#### functions
+
+snippet function_decl
+alias   funcd
+abbr    function declaration
+  ${1:#:type} ${2:#:function name} ( ${3:#:args} ); ${0}
+
+
+snippet function_impl
+alias   funci
+abbr    function implementation
+  ${1:#:type} ${2:#:function name} ( ${3:#:args} ){
+    ${4:#:process}
+
+    return ${5:#:$1 value};
+  }
+
+
+
+
+
+#### if else elseif statement
+
+## if
+snippet ifm
+options head
+abbr    multiline if statement
+  if( ${1:#:condition} ) {
+    ${2:#:process}
+  }
+  ${0}
+
+snippet if
+options head
+abbr    single line if statement
+  if( ${1:#:condition} ) ${2:#:process}; ${0}
+
+
+
+
+
+## else
+snippet elsem
+alias   elsm
+options head
+abbr    multiline else statement
+  else {
+    ${1:#:process}
+  }
+  ${0}
+
+snippet else 
+options head
+abbr    single line else statement 
+  else ${1:#:process}; ${0}
+
+
+
+
+
+
+## else if
+snippet elseifm
+alias   elsifm
+abbr    multi line else if statement
+  else if ( ${1:#:conditional} ){
+    ${2:#:process}
+  }
+  ${0}
+
+snippet     elseif 
+abbr        single line else if statement 
+options     head
+  else if ( ${1:#:conditional} ) ${2:#:process};${0}
+
+
+
+
+
+
+
+
+
+#### switch case default statement
+## switch
+snippet switch
+options head
+abbr    switch statement
+  switch( ${1:#:value} ){
+    ${2:#:case statement}
+  }
+  ${0}
+
+
+
+## case
+snippet case
+options head
+abbr    case statement
+  case ${1:#:value} :
+    ${2:#:process}
+
+  break;
+  ${0}
+
+snippet case_block
+alias   caseb
+options head
+abbr    case and block statement
+  case ${1:#:value} : {
+    ${2:#:process}
+
+    break;
+  }
+  ${0}
+
+
+
+
+## default
+snippet default
+options head
+abbr    default statement
+  default :
+    ${1:#:process}
+  break;
+  ${0}
+
+
+snippet default_block
+alias   defaultb
+options head
+abbr    default and block statement
+  default : {
+    ${1:#:process}
+
+    break;
+  }
+  ${0}
+
+
+
+
+
+
+
+
+#### for statement
+
+snippet form
+options head
+abbr    multi line for statement
+  for( ${1:#:initialize} ; ${2:#:conditional} ; ${3:#:transition} ){
+    ${4:#:process}
+  }
+  ${0}
+
+snippet for
+options head
+abbr    single line for statement
+  for( ${1:#:initialize} ; ${2:#:conditional} ; ${3:#:transition} )
+    ${4:#:process}
+  ${0}
+
+
+
+
+
+
+
+
+#### while statement
+snippet whilem
+options head
+abbr    multi line while statement
+  while( ${1:#:conditional} ){
+    ${2:#:process}
+
+    ${3:#:transition}
+  }
+  ${0}
+
+snippet while
+options head
+abbr    single line while statement
+  while( ${1:#:conditional} )
+    ${4:#:process}
+  ${0}
+
+
+
+
+
+
+
+
+#### do-while statement
+snippet do-while
+alias   do
+options head
+abbr    do-while statement
+  do{
+    ${2:#:process}
+
+  } while ( ${1:#:conditional} );
+
+
+
+
+
+
+
+
+#### struct statement
+snippet struct
+abbr    struct statement
+  struct ${1:#:typename}{
+    ${2:#:members}
+  }
+
+
+snippet struct_instance
+alias   structi
+abbr    struct instance statement
+  struct ${1:#:type} ${2:#:name};${0}
+
+
+
+
+
+
+#### enum statement
+snippet enum
+abbr    enum statement
+  enum ${1:#:typename}{
+    ${2:#:members}
+  }
+
+
+snippet enum_instance
+alias   enumi
+abbr    enum instance statement
+  enum ${1:#:type} ${2:#:name};${0}
+
+
+
+
+
+
+
+#### typedef statement
+snippet typedef
+options head
+abbr    typedef statement
+  typedef ${1:#:typename} ${2:#:new typename};${0}
+
+
+
+
+
+
+
+#### #ifndef ... #define ... #endif
+snippet #ifndef
+alias   #ifn
+options head
+abbr    include guard literal
+  #ifndef $1
+  #define ${1:#:SYMBOL}
+  #endif /* #ifndef $1 */
+
+
+
+
+
+#### array
+snippet [
+alias   [], [ ]
+abbr    array
+  [ ${1:#:number or contents} ]${0}
+
+
+
+
+#### string
+snippet "
+alias   "", " "
+abbr    string
+  "${1:#:string}"${0}
+
+
+
+#### block
+snippet {
+alias   {}, { }
+abbr    block/struct
+  { ${1:#:contents} }${0}
+
+
+
+
+#### bracket
+snippet (
+alias   (), ( )
+abbr    bracket
+  ( ${1:#:contents} )${0}
+
+
+
+#### conditional operator
+snippet ?
+alias ? :
+  ? ${1:#:true state} : ${2:#:false state};${0}
+
+
+
+#### sizeof
+snippet sizeof
+alias   size
+  sizeof( ${1:#:type} )${0}
+
+
+#### comment
+snippet /*
+alias /**/, /* */
+alias   comment
+abbr    comment
+  /* ${1:#:comment} */

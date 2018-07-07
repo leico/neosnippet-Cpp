@@ -1,0 +1,222 @@
+include c.snip
+
+
+#### include 
+delete #inc<
+delete #inc"
+
+snippet #inc<
+alias   inc<
+options head
+abbr    C++ style include< >
+  #include <${1:iostream}>${0}
+
+
+snippet #inc"
+alias   inc"
+options head
+abbr    C++ style include" "
+  #include "${1:#:header file}"${0}
+
+
+
+
+
+
+
+
+
+#### prefix
+snippet inline
+options head
+abbr    inline prefix
+  inline ${1:#:function} ${0}
+
+
+
+
+
+
+
+#### decltype
+snippet decltype
+abbr decltype operator
+  decltype( ${1:#:Type} ) ${0}
+
+#### template
+snippet template
+abbr template<...>
+  template ${0}
+
+
+
+
+
+#### template brackets
+snippet <>
+alias   template_brackets, tempbr
+abbr    template brackets
+  < ${1:#:template args} >
+
+#### scope operator
+snippet ::
+alias scope
+  ${1:#:class/namespace} :: ${2:#:member} ${0}
+
+
+
+
+
+
+
+
+#### public specifier
+snippet public
+alias   pub
+abbr    public specifier
+  public${0}
+
+
+#### protected specifier
+snippet protected
+alias   prot
+abbr    protected specifier
+  protected${0}
+
+
+#### private specifier
+snippet private
+alias   pri
+abbr    private specifier
+  private${0}
+
+
+#### virtual specifier
+snippet virtual
+alias   vir
+abbr    virtual specifier
+  virtual ${0}
+
+
+#### new operator
+snippet new
+abbr    new operator
+  new ${1:#:Type} ${0}
+
+#### delete operator
+snippet delete
+alias   del
+abbr    delete operator
+  delete ${1:#:Type} ${0}
+
+
+#### delete[] operator
+snippet delete[]
+alias   del[]
+abbr    delete[] operator
+  delete[] ${1:#:Type} ${0}
+
+
+#### using specifier
+snippet using
+abbr    using specifier
+  using ${0}
+
+
+#### typename
+snippet typename
+alias   tn
+abbr typename prefix
+  typename ${1:#:type}${0}
+
+
+
+
+#### class
+snippet class
+abbr    class prefix
+  class ${1:#:class}${0}
+
+
+
+
+#### namespace implementation
+snippet namespace_impl
+alias   nsimpl
+options head
+  namespace ${1:#:Name} {
+    ${2:#:member}
+  }
+
+
+
+
+
+
+
+
+
+
+#### class declaration
+snippet class_decl
+alias   classd
+abbr    class declaration
+  class ${1:#:class name} ${2:#:base class}{
+    ${3:#:members}
+  };${0}
+
+
+#### constructor
+snippet constructor_decl
+alias   constructd
+abbr    outside constructor implementation 
+  ${1:#:class name} :: $1 ( ${2:#:args} ){
+    ${3:#:process}
+  }
+
+#### destructor
+snippet destructor_decl
+alias   destructd
+abbr    outside destructor implementation
+  ${1:#:class name} :: ~$1 ( ${2:#:args} ){
+    ${3:#:process}
+  }
+
+
+
+#### :: type
+snippet ::type
+alias   type
+abbr    C++11 type_traits return value
+  :: type ${0}
+
+
+#### ::value
+snippet ::value
+alias   value
+abbr    C++11 type_traits return value
+  :: value ${0}
+
+
+#### ::iterator
+snippet ::iterator
+alias   iterator
+abbr    C++ STL iterator
+  :: iterator
+
+
+#### std namespace
+snippet std 
+abbr    std :: namespace
+  std :: ${0}
+
+
+#### true_type
+snippet true_
+abbr    true_type
+  true_type ${0}
+
+#### false_type
+snippet false_
+abbr    false_type
+  false_type ${0}
