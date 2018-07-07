@@ -60,9 +60,51 @@ abbr    template brackets
 
 #### scope operator
 snippet ::
-alias scope
+alias   scope
+abbr    scope operator
   ${1:#:class/namespace} :: ${2:#:member} ${0}
 
+
+#### lambda function
+snippet [](
+alias   [](), [](){}
+abbr    lambda function template
+  [ ${1:#:capture} ]( ${2:#:args} ){ ${3:#:process} }${0}
+
+
+
+
+#### C++ functions
+
+snippet function_decl_cpp
+alias   funcdcpp
+abbr    C++ function declaration template 
+  ${1:#:type} ${2:#:function name} ( ${3:#:args} ) ${4:#:declaration};${0}
+
+
+snippet function_impl_cpp
+alias   funcicpp
+abbr    C++ function implementation template
+  ${1:#:type} ${2:#:function name} ( ${3:#:args} ) ${4:#:declaration}{
+
+    ${5:#:process}
+
+    return ${6:#:$1 type return value};
+  }
+ 
+snippet function_decl_cpp_auto
+alias   funcdcppauto
+  auto ${1:#:function name} ( ${2:#:args} ) ${3:#:declaration} -> ${4:#:return type};${0}
+
+snippet function_impl_cpp_auto
+alias   funcicppauto
+  auto ${1:#:function name} ( ${2:#:args} ) ${3:#:declaration} -> ${4:#:return type}
+  {
+    
+    ${5:#:process}
+
+    return ${6:#:$4 type return value};
+  }${0}
 
 
 
@@ -164,23 +206,6 @@ abbr    class declaration
   class ${1:#:class name} ${2:#:base class}{
     ${3:#:members}
   };${0}
-
-
-#### constructor
-snippet constructor_decl
-alias   constructd
-abbr    outside constructor implementation 
-  ${1:#:class name} :: $1 ( ${2:#:args} ){
-    ${3:#:process}
-  }
-
-#### destructor
-snippet destructor_decl
-alias   destructd
-abbr    outside destructor implementation
-  ${1:#:class name} :: ~$1 ( ${2:#:args} ){
-    ${3:#:process}
-  }
 
 
 
