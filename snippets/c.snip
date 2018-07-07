@@ -257,7 +257,7 @@ snippet struct
 abbr    struct statement
   struct ${1:#:typename}{
     ${2:#:members}
-  }
+  };
 
 
 snippet struct_instance
@@ -315,8 +315,8 @@ abbr    include guard literal
 
 
 #### array
-snippet [
-alias   [], [ ]
+snippet []
+alias   array_literal
 abbr    array
   [ ${1:#:number or contents} ]${0}
 
@@ -324,16 +324,16 @@ abbr    array
 
 
 #### string
-snippet "
-alias   "", " "
+snippet ""
+alias   string_literal
 abbr    string
   "${1:#:string}"${0}
 
 
 
 #### block
-snippet {
-alias   {}, { }
+snippet {}
+alias   block_literal
 abbr    block/struct
   { ${1:#:contents} }${0}
 
@@ -341,8 +341,8 @@ abbr    block/struct
 
 
 #### bracket
-snippet (
-alias   (), ( )
+snippet ()
+alias   bracket_literal
 abbr    bracket
   ( ${1:#:contents} )${0}
 
@@ -350,7 +350,6 @@ abbr    bracket
 
 #### conditional operator
 snippet ?
-alias ? :
   ? ${1:#:true state} : ${2:#:false state};${0}
 
 

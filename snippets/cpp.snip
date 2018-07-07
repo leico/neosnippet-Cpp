@@ -9,14 +9,14 @@ snippet #inc<
 alias   inc<
 options head
 abbr    C++ style include< >
-  #include <${1:iostream}>${0}
+  #include < ${1:iostream}>${0}
 
 
 snippet #inc"
 alias   inc"
 options head
 abbr    C++ style include" "
-  #include "${1:#:header file}"${0}
+  #include "${1:#:header_file}"${0}
 
 
 
@@ -30,7 +30,7 @@ abbr    C++ style include" "
 snippet inline
 options head
 abbr    inline prefix
-  inline ${1:#:function} ${0}
+  inline ${1:#:function}${0}
 
 
 
@@ -41,7 +41,7 @@ abbr    inline prefix
 #### decltype
 snippet decltype
 abbr decltype operator
-  decltype( ${1:#:Type} ) ${0}
+  decltype( ${1:#:Type})${0}
 
 #### template
 snippet template
@@ -56,20 +56,20 @@ abbr template<...>
 snippet <>
 alias   template_brackets, tempbr
 abbr    template brackets
-  < ${1:#:template args} >
+  < ${1:#:template_args}>
 
 #### scope operator
 snippet ::
 alias   scope
 abbr    scope operator
-  ${1:#:class/namespace} :: ${2:#:member} ${0}
+  ${1:#:class/namespace}:: ${2:#:member}${0}
 
 
 #### lambda function
 snippet [](
 alias   [](), [](){}
 abbr    lambda function template
-  [ ${1:#:capture} ]( ${2:#:args} ){ ${3:#:process} }${0}
+  [ ${1:#:capture}]( ${2:#:args}){ ${3:#:process}}${0}
 
 
 
@@ -79,31 +79,33 @@ abbr    lambda function template
 snippet function_decl_cpp
 alias   funcdcpp
 abbr    C++ function declaration template 
-  ${1:#:type} ${2:#:function name} ( ${3:#:args} ) ${4:#:declaration};${0}
+  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration};${0}
 
 
 snippet function_impl_cpp
 alias   funcicpp
 abbr    C++ function implementation template
-  ${1:#:type} ${2:#:function name} ( ${3:#:args} ) ${4:#:declaration}{
+  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}{
 
     ${5:#:process}
 
-    return ${6:#:$1 type return value};
+    return ${6:#:$1_type_return_value};
   }
  
 snippet function_decl_cpp_auto
 alias   funcdcppauto
-  auto ${1:#:function name} ( ${2:#:args} ) ${3:#:declaration} -> ${4:#:return type};${0}
+  auto ${1:#:function_name}( ${2:#:args}) ${3:#:declaration}-> 
+  ${4:#:return_type};${0}
 
 snippet function_impl_cpp_auto
 alias   funcicppauto
-  auto ${1:#:function name} ( ${2:#:args} ) ${3:#:declaration} -> ${4:#:return type}
+  auto ${1:#:function_name}( ${2:#:args}) ${3:#:declaration}-> 
+  ${4:#:return_type}
   {
     
     ${5:#:process}
 
-    return ${6:#:$4 type return value};
+    return ${6:#:$4_type_return_value};
   }${0}
 
 
@@ -137,26 +139,26 @@ abbr    private specifier
 snippet virtual
 alias   vir
 abbr    virtual specifier
-  virtual ${0}
+  virtual${0}
 
 
 #### new operator
 snippet new
 abbr    new operator
-  new ${1:#:Type} ${0}
+  new ${1:#:Type}${0}
 
 #### delete operator
 snippet delete
 alias   del
 abbr    delete operator
-  delete ${1:#:Type} ${0}
+  delete ${1:#:Type}${0}
 
 
 #### delete[] operator
 snippet delete[]
 alias   del[]
 abbr    delete[] operator
-  delete[] ${1:#:Type} ${0}
+  delete[] ${1:#:Type}${0}
 
 
 #### using specifier
@@ -186,7 +188,7 @@ abbr    class prefix
 snippet namespace_impl
 alias   nsimpl
 options head
-  namespace ${1:#:Name} {
+  namespace ${1:#:Name}{
     ${2:#:member}
   }
 
@@ -194,7 +196,28 @@ options head
 
 
 
+#### range based for
+snippet for_range
+options head
+abbr    range based for template
+  for(${1:#:Type}${2:#:value}: ${3:#:container}){
+    ${4:#:process}
+  }
+  ${0}
 
+
+
+
+#### struct class declaration
+delete struct
+delete struct_instance
+delete structi
+
+snippet struct
+abbr    struct class declaration
+  struct ${1:#:class_name}${2:#:base_class}{
+    ${3:#:members}
+  };${0}
 
 
 
@@ -203,7 +226,7 @@ options head
 snippet class_decl
 alias   classd
 abbr    class declaration
-  class ${1:#:class name} ${2:#:base class}{
+  class ${1:#:class_name}${2:#:base_class}{
     ${3:#:members}
   };${0}
 
@@ -213,35 +236,41 @@ abbr    class declaration
 snippet ::type
 alias   type
 abbr    C++11 type_traits return value
-  :: type ${0}
+  :: type${0}
 
 
 #### ::value
 snippet ::value
 alias   value
 abbr    C++11 type_traits return value
-  :: value ${0}
+  :: value${0}
 
 
 #### ::iterator
 snippet ::iterator
 alias   iterator
 abbr    C++ STL iterator
-  :: iterator
+  :: iterator${0}
 
 
 #### std namespace
 snippet std 
 abbr    std :: namespace
-  std :: ${0}
+  std ::${0}
 
 
 #### true_type
 snippet true_
 abbr    true_type
-  true_type ${0}
+  true_type${0}
 
 #### false_type
 snippet false_
 abbr    false_type
-  false_type ${0}
+  false_type${0}
+
+
+#### declval
+snippet declval
+abbr std :: declval meta function
+  declval < ${1:#:Type}>()
