@@ -68,54 +68,87 @@ in vim
 
 これら2つのスニペットを組み合わせて利用していきます。
 
-1.  input typedef
+1.  input `typedef`
 
     ```c
     typedef
     ```
-2.  ```c
+
+2.  extract `typedef`
+
+    ```c
     typedef ${1:#:typename} ${2:#:new typename};${0}
     ```
-3.  ```c
+
+3.  input `struct` in `typedef` 's _typename_
+
+    ```c
     typedef struct ${2:#:new typename};${0}
     ```
-4.  ```c
+
+4.  extract `struct`
+    
+    ```c
     typedef struct ${1:#:typename} ${2:#:variable_or_process}${0} ${2:#:new typename};${0}
     ```
-5.  ```c
-    typedef struct Container ${2:#:variable_or_process}${0} ${2:#:new typename};${0}
+
+5.  input `_Container` in `struct` 's _typename_
+
+    ```c
+    typedef struct _Container ${2:#:variable_or_process}${0} ${2:#:new typename};${0}
     ```
-6.  ```c
-    typedef struct Container {} ${0} ${2:#:new typename};${0}
+
+6.  input `{}` in `struct` 's _variable\_or\_process_
+     
+    ```c
+    typedef struct _Container {} ${0} ${2:#:new typename};${0}
     ```
-7.  ```c
+
+7.  extract `{}`
+
+    ```c
     typedef struct _Container { ${1:#:contents} }${0} ${0} ${2:#:new typename};${0}
     ```
-8.  ```c
+
+8.  input `{}` 's contents
+
+    ```c
     typedef struct _Container { 
       int x;
       int y;
     }${0} ${0} ${2:#:new typename};${0}
     ```
-9.  ```c
+
+9.  jump to end of `{}`
+
+    ```c
     typedef struct _Container { 
       int x;
       int y;
     } ${0} ${2:#:new typename};${0}
     ```
-10. ```c
+
+10. jump to end of `struct`
+
+    ```c
     typedef struct _Container { 
       int x;
       int y;
     } ${2:#:new typename};${0}
     ```
-11. ```c
+
+11. input `Container` in `typename` 's _new typename_ 
+
+    ```c
     typedef struct _Container { 
       int x;
       int y;
     } Container;${0}
     ```
-12. ```c
+
+12. jump to end of `typedef`
+    
+    ```c
     typedef struct _Container { 
       int x;
       int y;
