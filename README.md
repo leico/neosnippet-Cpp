@@ -63,7 +63,7 @@ in vim
 各種キーワードは以下の様に展開されます。
 
 * [keyword]
-    * [keywoard] ${1:#:process}${0}
+    * `[keywoard] ${1:#:process}${0}`
 
 
 これら2つのスニペットを組み合わせて利用していきます。
