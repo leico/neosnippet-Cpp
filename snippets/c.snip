@@ -15,6 +15,7 @@ abbr    string
 #### array
 snippet []
 alias   array_literal
+options indent
 abbr    array
   [ ${1:#:number or contents} ]${0}
 
@@ -22,6 +23,7 @@ abbr    array
 #### block
 snippet {}
 alias   block_literal
+options indent
 abbr    block/struct
   { ${1:#:contents} }${0}
 
@@ -31,6 +33,7 @@ abbr    block/struct
 #### bracket
 snippet ()
 alias   bracket_literal
+options indent
 abbr    bracket
   ( ${1:#:contents} )${0}
 
@@ -39,6 +42,7 @@ abbr    bracket
 #### angle bracket
 snippet <>
 alias   angle_bracket_literal
+options indent
 abbr    angle bracket literal
   < ${1:#:contents} >${0}
 
@@ -107,8 +111,7 @@ alias   size
 
 #### comment
 snippet /*
-alias /**/, /* */
-alias   comment
+alias /**/, comment
 abbr    comment
   /* ${1:#:comment} */
 
@@ -232,8 +235,7 @@ abbr    struct instance statement
 
 
 #### enum statement
-snippet enum_instance
-alias   enumi
+snippet enum
 abbr    enum instance statement
   enum ${1:#:typename} ${2:#:variable_or_process} ${0}
 
