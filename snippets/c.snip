@@ -15,17 +15,17 @@ abbr    string
 #### array
 snippet []
 alias   array_literal
-options indent
+options indent,word
 abbr    array
-  [ ${1:#:number or contents} ]${0}
+  [ ${1:#:number or contents}]${0}
 
 
 #### block
 snippet {}
 alias   block_literal
-options indent
+options indent,word
 abbr    block/struct
-  { ${1:#:contents} }${0}
+  { ${1:#:contents}}${0}
 
 
 
@@ -33,18 +33,18 @@ abbr    block/struct
 #### bracket
 snippet ()
 alias   bracket_literal
-options indent
+options indent,word
 abbr    bracket
-  ( ${1:#:contents} )${0}
+  ( ${1:#:contents})${0}
 
 
 
 #### angle bracket
 snippet <>
 alias   angle_bracket_literal
-options indent
+options indent,word
 abbr    angle bracket literal
-  < ${1:#:contents} >${0}
+  < ${1:#:contents}>${0}
 
 
 
@@ -106,14 +106,14 @@ abbr    continue statement
 #### sizeof
 snippet sizeof
 alias   size
-  sizeof( ${1:#:type} )${0}
+  sizeof( ${1:#:type})${0}
 
 
 #### comment
 snippet /*
 alias /**/, comment
 abbr    comment
-  /* ${1:#:comment} */
+  /* ${1:#:comment}*/
 
 
 
@@ -139,7 +139,7 @@ abbr    function declaration
 snippet if
 options head
 abbr    single line if statement
-  if( ${1:#:condition} ) ${2:#:process}
+  if( ${1:#:condition}) ${2:#:process}
 
 
 
@@ -160,7 +160,7 @@ abbr    single line else statement
 snippet     elseif 
 abbr        single line else if statement 
 options     head
-  else if ( ${1:#:conditional} ) ${2:#:process}
+  else if ( ${1:#:conditional}) ${2:#:process}
 
 
 
@@ -172,7 +172,7 @@ options     head
 snippet switch
 options head
 abbr    switch statement
-  switch( ${1:#:value} ) 
+  switch( ${1:#:value}) 
 
 
 
@@ -198,14 +198,14 @@ abbr    default statement
 snippet for
 options head
 abbr    single line for statement
-  for( ${1:#:initialize} ; ${2:#:conditional} ; ${3:#:transition} ) ${4:#:process}
+  for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:#:process}
 
 
 #### while statement
 snippet while
 options head
 abbr    single line while statement
-  while( ${1:#:conditional} ) ${2:#:process}
+  while( ${1:#:conditional}) ${2:#:process}
 
 
 
@@ -215,7 +215,7 @@ snippet do-while
 alias   do
 options head
 abbr    do-while statement
-  do ${2:#:process} while ( ${1:#:conditional} );
+  do ${2:#:process} while ( ${1:#:conditional});
 
 
 
