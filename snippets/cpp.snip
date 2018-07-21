@@ -12,6 +12,12 @@ alias   scope
 abbr    scope operator
   ${1:#:class/namespace}:: ${2:#:member}${0}
 
+snippet ::member
+alias   ::mem
+abbr    namespace / class member
+options word
+  :: ${1:#:member}
+
 
 #### lambda function
 snippet [](
@@ -49,13 +55,13 @@ abbr template<...>
 snippet function_cpp
 alias   funcdcpp
 abbr    C++ function declaration template 
-  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration} ${4:#:process_or_end}
+  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}${5:#:process_or_end}
 
 
 snippet function_cpp_auto
 alias   funcdcppauto
-  auto ${1:#:function_name}( ${2:#:args}) ${3:#:declaration}-> 
-  ${4:#:return_type} ${5:#:process_or_end}
+  ${1:#:prefix}auto ${2:#:function_name}( ${3:#:args}) ${4:#:declaration}-> 
+  ${5:#:return_type} ${6:#:process_or_end}
 
 
 
@@ -209,3 +215,11 @@ abbr    false_type
 snippet declval
 abbr std :: declval meta function
   declval < ${1:#:Type}>()
+
+
+
+#### static_assert
+snippet static_assert
+alias   static_, static_a
+abbr    static_assert operator
+  static_assert( ${1:#:Conditional}, ${2:#:Error message} );
