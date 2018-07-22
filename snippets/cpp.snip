@@ -6,12 +6,14 @@ snippet :
 alias   inherit
   : ${0:#:base_class/function}
 
+
 #### scope operator
 snippet ::
 alias   scope
 abbr    scope operator
   ${1:#:class/namespace}:: ${2:#:member}${0}
 
+#### namespace / class member
 snippet ::member
 alias   ::mem
 abbr    namespace / class member
@@ -27,7 +29,7 @@ abbr    lambda function template
 
 
 
-#### prefix
+#### inline prefix
 snippet inline
 options head
 abbr    inline prefix
@@ -123,6 +125,15 @@ snippet typename
 alias   tn
 abbr typename prefix
   typename ${1:#:type}${0}
+
+
+
+#### default modifier
+delete default
+
+snippet default
+abbr default modifier
+  default ${0}
 
 
 
