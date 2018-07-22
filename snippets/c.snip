@@ -110,8 +110,8 @@ alias   size
 
 
 #### comment
-snippet /*
-alias /**/, comment
+snippet /**/
+alias /*, comment
 abbr    comment
   /* ${1:#:comment}*/
 
@@ -138,7 +138,7 @@ abbr    function declaration
 ## if
 snippet if
 options head
-abbr    single line if statement
+abbr    if statement
   if( ${1:#:condition}) ${2:#:process}
 
 
@@ -148,7 +148,7 @@ abbr    single line if statement
 ## else
 snippet else 
 options head
-abbr    single line else statement 
+abbr    else statement 
   else ${1:#:process}
 
 
@@ -157,9 +157,9 @@ abbr    single line else statement
 
 
 ## else if
-snippet     elseif 
-abbr        single line else if statement 
-options     head
+snippet elseif 
+abbr    else if statement 
+options head
   else if ( ${1:#:conditional}) ${2:#:process}
 
 
@@ -197,14 +197,14 @@ abbr    default statement
 
 snippet for
 options head
-abbr    single line for statement
+abbr    for statement
   for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:#:process}
 
 
 #### while statement
 snippet while
 options head
-abbr    single line while statement
+abbr    while statement
   while( ${1:#:conditional}) ${2:#:process}
 
 

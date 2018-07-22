@@ -15,7 +15,7 @@ abbr    scope operator
 
 #### namespace / class member
 snippet ::member
-alias   ::mem
+alias   member
 abbr    namespace / class member
 options word
   :: ${1:#:member}
@@ -62,6 +62,7 @@ abbr    C++ function declaration template
 
 snippet function_cpp_auto
 alias   funcdcppauto
+abbr    back end return type declaration
   ${1:#:prefix}auto ${2:#:function_name}( ${3:#:args}) ${4:#:declaration}-> 
   ${5:#:return_type} ${6:#:process_or_end}
 
@@ -147,8 +148,8 @@ abbr    class prefix
 
 
 #### namespace implementation
-snippet namespace_impl
-alias   nsimpl
+snippet namespace
+alias   ns, name
 options head
   namespace ${1:#:Name} ${2:#:member_or_end}
 
@@ -166,9 +167,8 @@ abbr    range based for template
 
 
 #### struct class declaration
-delete struct
-
-snippet struct
+snippet struct_decl
+alias   structd
 abbr    struct class declaration
   struct ${1:#:classname(:_baseclass)}{
     ${2:#:members}
@@ -189,18 +189,21 @@ abbr    class declaration
 
 #### :: type
 snippet ::type
+alias   type
 abbr    C++11 type_traits return value
   :: type${0}
 
 
 #### ::value
 snippet ::value
+alias   value
 abbr    C++11 type_traits return value
   :: value${0}
 
 
 #### ::iterator
 snippet ::iterator
+alias   iterator, iter
 abbr    C++ STL iterator
   :: iterator${0}
 
