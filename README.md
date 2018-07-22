@@ -34,21 +34,21 @@ in vim
 以下の様に展開されます。
 
 * `()`
-    * `( ${1:#:contents} )${0}`
+    * `( ${1:#:contents})${0}`
 
 
 * `[]`
-    * `[ ${1:#:number or contents} ]${0}`
+    * `[ ${1:#:number or contents}]${0}`
 
 
 
 * `{}`
-    * `{ ${1:#:contents} }${0}`
+    * `{ ${1:#:contents}}${0}`
 
 
 
 * `<>`
-    * `< ${1:#:contents} >${0}`
+    * `< ${1:#:contents}>${0}`
 
 
 
@@ -71,93 +71,6 @@ in vim
 
 
 これら2つのスニペットを組み合わせて利用していきます。
-
-1.  input `typedef`
-
-    ```c
-    typedef
-    ```
-
-2.  extract `typedef`
-
-    ```c
-    typedef ${1:#:typename} ${2:#:new typename};${0}
-    ```
-
-3.  input `struct` in `typedef` 's _typename_
-
-    ```c
-    typedef struct ${2:#:new typename};${0}
-    ```
-
-4.  extract `struct`
-    
-    ```c
-    typedef struct ${1:#:typename} ${2:#:variable_or_process}${0} ${2:#:new typename};${0}
-    ```
-
-5.  input `_Container` in `struct` 's _typename_
-
-    ```c
-    typedef struct _Container ${2:#:variable_or_process}${0} ${2:#:new typename};${0}
-    ```
-
-6.  input `{}` in `struct` 's _variable\_or\_process_
-     
-    ```c
-    typedef struct _Container {} ${0} ${2:#:new typename};${0}
-    ```
-
-7.  extract `{}`
-
-    ```c
-    typedef struct _Container { ${1:#:contents} }${0} ${0} ${2:#:new typename};${0}
-    ```
-
-8.  input `{}` 's contents
-
-    ```c
-    typedef struct _Container { 
-      int x;
-      int y;
-    }${0} ${0} ${2:#:new typename};${0}
-    ```
-
-9.  jump to end of `{}`
-
-    ```c
-    typedef struct _Container { 
-      int x;
-      int y;
-    } ${0} ${2:#:new typename};${0}
-    ```
-
-10. jump to end of `struct`
-
-    ```c
-    typedef struct _Container { 
-      int x;
-      int y;
-    } ${2:#:new typename};${0}
-    ```
-
-11. input `Container` in `typename` 's _new typename_ 
-
-    ```c
-    typedef struct _Container { 
-      int x;
-      int y;
-    } Container;${0}
-    ```
-
-12. jump to end of `typedef`
-    
-    ```c
-    typedef struct _Container { 
-      int x;
-      int y;
-    } Container;
-    ```
 
 スニペットの展開、各種アンカー`${1...}` 、`${2...}` 、 `...` に飛ぶ方法は各種キーマップ設定に従います。
 
