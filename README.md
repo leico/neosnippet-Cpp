@@ -23,6 +23,10 @@ in vim
 :call dein#install()
 ```
 
+## Example
+
+![Example animation](https://github.com/leico/neosnippet-cpp/blob/images/Sample.gif "sample")
+
 ## Usage
 
 ### ブラケット、リテラルの展開
