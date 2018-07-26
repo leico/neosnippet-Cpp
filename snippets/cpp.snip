@@ -237,3 +237,35 @@ snippet static_assert
 alias   static_, static_a
 abbr    static_assert operator
   static_assert( ${1:#:Conditional}, ${2:#:Error message} );
+
+
+
+#### Cast ####
+
+#### dynamic_cast
+snippet dynamic_cast
+alias   dyn_cast, cast_dynamic
+abbr    dynamic_cast
+  dynamic_cast< ${1:#:Type}>( ${2:#:variable})${0}
+
+
+#### static_cast
+snippet static_cast
+alias   sta_cast, cast_static
+abbr    dynamic_cast
+  static_cast< ${1:#:Type}>( ${2:#:variable})${0}
+
+
+#### reinterpret_cast
+snippet reinterpret_cast
+alias   sta_cast, cast_static
+abbr    dynamic_cast
+  reinterpret_cast< ${1:#:Type}>( ${2:#:variable})${0}
+
+
+#### const_cast
+snippet const_cast
+alias   con_cast, cast_const
+abbr    dynamic_cast
+  const_cast< ${1:#:Type}>( ${2:#:variable})${0}
+
