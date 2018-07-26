@@ -41,14 +41,17 @@ snippet decltype
 abbr decltype operator
   decltype( ${1:#:Type})${0}
 
+
+#### typeid
+snippet typeid
+abbr    typeid operator
+  typeid( ${1:#:Type})${0}
+
+
 #### template
 snippet template
 abbr template<...>
   template < ${1:#:template_arg}> ${0}
-
-
-
-
 
 
 
@@ -94,6 +97,24 @@ snippet virtual
 alias   vir
 abbr    virtual specifier
   virtual ${0}
+
+
+#### operator functon
+snippet operator
+abbr    operator function
+  ${1:#:retrun_value} operator${2:#:operator} ( ${3:#:args}) ${4:#:declaration} ${5:#:process_or_end}
+
+
+#### constructor
+snippet constructor
+abbr     constructor function
+  ${1:#:(ClassName ::) Name} ( ${2:#:args}) ${3:#:(: initialize parameter)} ${4:#:process_or_end}
+
+#### destructor
+snippet destructor
+abbr    destructor function
+  ${1:#:ClassName ::} ~${2:#:Name} ( ${3:#:args}) ${4:#:process_or_end}
+
 
 
 #### explicit specifier
@@ -276,4 +297,6 @@ snippet const_cast
 alias   con_cast, cast_const
 abbr    dynamic_cast
   const_cast< ${1:#:Type}>( ${2:#:variable})${0}
+
+
 
