@@ -274,28 +274,28 @@ abbr    static_assert operator
 #### dynamic_cast
 snippet dynamic_cast
 alias   dyn_cast, cast_dynamic
-abbr    dynamic_cast
+abbr    dynamic_cast class operator
   dynamic_cast< ${1:#:Type}>( ${2:#:variable})${0}
 
 
 #### static_cast
 snippet static_cast
 alias   sta_cast, cast_static
-abbr    dynamic_cast
+abbr    static_cast class operator
   static_cast< ${1:#:Type}>( ${2:#:variable})${0}
 
 
 #### reinterpret_cast
 snippet reinterpret_cast
-alias   sta_cast, cast_static
-abbr    dynamic_cast
+alias   rein_cast, cast_reinterpret
+abbr    reinterpret_cast class operator
   reinterpret_cast< ${1:#:Type}>( ${2:#:variable})${0}
 
 
 #### const_cast
 snippet const_cast
 alias   con_cast, cast_const
-abbr    dynamic_cast
+abbr    const_cast class operator
   const_cast< ${1:#:Type}>( ${2:#:variable})${0}
 
 
