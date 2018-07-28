@@ -36,6 +36,14 @@ abbr    inline prefix
   inline ${1:#:function}${0}
 
 
+#### friend prefix
+snippet friend
+options head
+abbr    friend prefix
+  friend ${1:#:function or class}
+
+
+
 #### decltype
 snippet decltype
 abbr decltype operator
@@ -108,7 +116,7 @@ abbr    operator function
 #### constructor
 snippet constructor
 abbr     constructor function
-  ${1:#:(ClassName ::) Name}( ${2:#:args}) ${3:#:(: initialize parameter)}${4:#:process_or_end}
+  ${1:explicit}${2:#:(ClassName ::) Name}( ${3:#:args}) ${4:#:(: initialize parameter)}${5:#:process_or_end}
 
 #### destructor
 snippet destructor
