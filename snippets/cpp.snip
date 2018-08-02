@@ -8,22 +8,16 @@ alias   inherit
 
 
 #### scope operator
-snippet ::
-alias   scope
-abbr    scope operator
-  ${1:#:class/namespace}:: ${2:#:member}${0}
-
-#### namespace / class member
 snippet ::member
-alias   member
-abbr    namespace / class member
-options word
-  :: ${1:#:member}
+alias   ::, scope
+abbr    scope operator
+  :: ${1:#:member}${0}
+
 
 
 #### lambda function
-snippet [](
-alias   [](), [](){}
+snippet [](){}
+alias   []()
 abbr    lambda function template
   [ ${1:#:capture}]( ${2:#:args}){ ${3:#:process}}${0}
 
@@ -33,40 +27,40 @@ abbr    lambda function template
 snippet inline
 options head
 abbr    inline prefix
-  inline ${1:#:function}${0}
+  inline ${1:TARGET}${0}
 
 
 #### friend prefix
 snippet friend
 options head
 abbr    friend prefix
-  friend ${1:#:function or class}
+  friend ${1:TARGET}
 
 
 
 #### decltype
 snippet decltype
 abbr decltype operator
-  decltype( ${1:#:Type})${0}
+  decltype( ${1:TARGET})${0}
 
 
 #### typeid
 snippet typeid
 abbr    typeid operator
-  typeid( ${1:#:Type})${0}
+  typeid( ${1:TARGET})${0}
 
 
 #### template
 snippet template
 abbr template<...>
-  template < ${1:#:template_arg}> ${0}
+  template < ${1:TARGET}> ${0}
 
 
 #### constexpr
 snippet constexpr
 alias   conex
 abbr constexpr prefix
-  constexpr ${0}
+  constexpr ${1:TARGET}
 
 
 #### C++ functions
@@ -74,14 +68,14 @@ abbr constexpr prefix
 snippet function_cpp
 alias   funcdcpp
 abbr    C++ function declaration template 
-  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}${5:#:process_or_end}
+  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}${5:\{\}}
 
 
 snippet function_cpp_auto
 alias   funcdcppauto
 abbr    back end return type declaration
   ${1:#:prefix}auto ${2:#:function_name}( ${3:#:args}) ${4:#:declaration}-> 
-  ${5:#:return_type} ${6:#:process_or_end}
+  ${5:#:return_type} ${6:\{\}}
 
 
 
@@ -89,45 +83,45 @@ abbr    back end return type declaration
 snippet public
 alias   pub
 abbr    public specifier
-  public${0}
+  public${1:\:} ${2:TARGET}
 
 
 #### protected specifier
 snippet protected
 alias   prot
 abbr    protected specifier
-  protected${0}
+  protected${1:\:} ${2:TARGET}
 
 
 #### private specifier
 snippet private
 alias   pri
 abbr    private specifier
-  private${0}
+  private${1:\:} ${2:TARGET}
 
 
 #### virtual specifier
 snippet virtual
 alias   vir
 abbr    virtual specifier
-  virtual ${0}
+  virtual ${1:TARGET}
 
 
 #### operator functon
 snippet operator
 abbr    operator function
-  ${1:#:retrun_value}operator${2:#:operator}( ${3:#:args}) ${4:#:declaration}${5:#:process_or_end}
+  ${1:#:retrun_value}operator${2:#:operator}( ${3:#:args}) ${4:#:declaration}${5:\{\}}
 
 
 #### constructor
 snippet constructor
 abbr     constructor function
-  ${1:explicit}${2:#:(ClassName ::) Name}( ${3:#:args}) ${4:#:(: initialize parameter)}${5:#:process_or_end}
+  ${1:explicit}${2:#:(ClassName ::) Name}( ${3:#:args}) ${4:#:(: initialize parameter)}${5:\{\}}
 
 #### destructor
 snippet destructor
 abbr    destructor function
-  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args}) ${4:#:process_or_end}
+  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args}) ${4:\{\}}
 
 
 
@@ -135,40 +129,40 @@ abbr    destructor function
 snippet explicit
 alias   expl
 abbr    explicit specifier
-  explicit ${0}
+  explicit ${1:TARGET}
 
 
 
 #### new operator
 snippet new
 abbr    new operator
-  new ${1:#:Type}${0}
+  new ${1:TARGET}${0}
 
 #### delete operator
 snippet delete
 alias   del
 abbr    delete operator
-  delete ${1:#:Type}${0}
+  delete ${1:TARGET}${0}
 
 
 #### delete[] operator
 snippet delete[]
 alias   del[]
 abbr    delete[] operator
-  delete[] ${1:#:Type}${0}
+  delete[] ${1:TARGET}${0}
 
 
 #### using specifier
 snippet using
 abbr    using specifier
-  using ${0}
+  using ${1:TARGET}
 
 
 #### typename
 snippet typename
 alias   tn
 abbr typename prefix
-  typename ${1:#:type}${0}
+  typename ${1:TARGET}${0}
 
 
 
@@ -185,7 +179,7 @@ abbr default modifier
 #### class
 snippet class
 abbr    class prefix
-  class ${1:#:class}${0}
+  class ${1:#:class}${2:\{\}}${0}
 
 
 
@@ -194,7 +188,7 @@ abbr    class prefix
 snippet namespace
 alias   ns, name
 options head
-  namespace ${1:#:Name} ${2:#:member_or_end}
+  namespace ${1:#:Name} ${2:\{\}}
 
 
 
@@ -204,42 +198,20 @@ options head
 snippet for_range
 options head
 abbr    range based for template
-  for(${1:#:Type}${2:#:value}: ${3:#:container}) ${4:#:process}
+  for(${1:#:Type}${2:#:value}: ${3:#:container}) ${4:\{\}}
 
 
-
-
-#### struct class declaration
-snippet struct_decl
-alias   structd
-abbr    struct class declaration
-  struct ${1:#:classname(:_baseclass)}{
-    ${2:#:members}
-  };${0}
-
-
-
-
-#### class declaration
-snippet class_decl
-alias   classd
-abbr    class declaration
-  class ${1:#:classname(:_baseclass)}{
-    ${2:#:members}
-  };${0}
 
 
 
 #### :: type
 snippet ::type
-alias   type
 abbr    C++11 type_traits return value
   :: type${0}
 
 
 #### ::value
 snippet ::value
-alias   value
 abbr    C++11 type_traits return value
   :: value${0}
 
@@ -254,7 +226,7 @@ abbr    C++ STL iterator
 #### std namespace
 snippet std 
 abbr    std :: namespace
-  std ::${0}
+  std ::${1:TARGET}
 
 
 #### true_type
@@ -271,7 +243,7 @@ abbr    false_type
 #### declval
 snippet declval
 abbr std :: declval meta function
-  declval < ${1:#:Type}>()
+  declval < ${1:TARGET}>()
 
 
 
@@ -279,7 +251,7 @@ abbr std :: declval meta function
 snippet static_assert
 alias   static_, static_a
 abbr    static_assert operator
-  static_assert( ${1:#:Conditional}, ${2:#:Error message} );
+  static_assert( ${1:#:Conditional}, ${2:TARGET} );
 
 
 
@@ -289,28 +261,28 @@ abbr    static_assert operator
 snippet dynamic_cast
 alias   dyn_cast, cast_dynamic
 abbr    dynamic_cast class operator
-  dynamic_cast< ${1:#:Type}>( ${2:#:variable})${0}
+  dynamic_cast< ${1:#:Type}>( ${2:TARGET})${0}
 
 
 #### static_cast
 snippet static_cast
 alias   sta_cast, cast_static
 abbr    static_cast class operator
-  static_cast< ${1:#:Type}>( ${2:#:variable})${0}
+  static_cast< ${1:#:Type}>( ${2:TARGET})${0}
 
 
 #### reinterpret_cast
 snippet reinterpret_cast
 alias   rein_cast, cast_reinterpret
 abbr    reinterpret_cast class operator
-  reinterpret_cast< ${1:#:Type}>( ${2:#:variable})${0}
+  reinterpret_cast< ${1:#:Type}>( ${2:TARGET})${0}
 
 
 #### const_cast
 snippet const_cast
 alias   con_cast, cast_const
 abbr    const_cast class operator
-  const_cast< ${1:#:Type}>( ${2:#:variable})${0}
+  const_cast< ${1:#:Type}>( ${2:TARGET})${0}
 
 
 

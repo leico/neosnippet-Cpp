@@ -2,14 +2,14 @@
 snippet ''
 alias   char_literal
 abbr    charactor
-  '${1:#:charactor}'${0}
+  '${1:TARGET}'${0}
 
 
 #### string
 snippet ""
 alias   string_literal
 abbr    string
-  "${1:#:string}"${0}
+  "${1:TARGET}"${0}
 
 
 #### array
@@ -17,7 +17,7 @@ snippet []
 alias   array_literal
 options indent,word
 abbr    array
-  [ ${1:#:number or contents}]${0}
+  [ ${1:TARGET}]${0}
 
 
 #### block
@@ -25,7 +25,7 @@ snippet {}
 alias   block_literal
 options indent,word
 abbr    block/struct
-  { ${1:#:contents}}${0}
+  { ${1:TARGET}}${0}
 
 
 
@@ -35,7 +35,7 @@ snippet ()
 alias   bracket_literal
 options indent,word
 abbr    bracket
-  ( ${1:#:contents})${0}
+  ( ${1:TARGET})${0}
 
 
 
@@ -44,7 +44,7 @@ snippet <>
 alias   angle_bracket_literal
 options indent,word
 abbr    angle bracket literal
-  < ${1:#:contents}>${0}
+  < ${1:TARGET}>${0}
 
 
 
@@ -106,21 +106,21 @@ abbr    continue statement
 #### sizeof
 snippet sizeof
 alias   size
-  sizeof( ${1:#:type})${0}
+  sizeof( ${1:TARGET})${0}
 
 
 #### comment
 snippet /**/
 alias /*, comment
 abbr    comment
-  /* ${1:#:comment}*/
+  /* ${1:TARGET}*/
 
 
 
 #### return statement
 snippet return
 abbr    return statement
-  return ${1:#:return value};${0}
+  return ${1:TARGET};${0}
 
 
 #### functions
@@ -128,7 +128,7 @@ abbr    return statement
 snippet function
 alias   func
 abbr    function declaration
-  ${1:#:type}${2:#:function name}( ${3:#:args})${4:#:process}
+  ${1:#:type}${2:#:function name}( ${3:#:args})${4:\{\}}
 
 
 
@@ -139,7 +139,7 @@ abbr    function declaration
 snippet if
 options head
 abbr    if statement
-  if( ${1:#:condition}) ${2:#:process}
+  if( ${1:#:condition}) ${2:\{\}}
 
 
 
@@ -149,7 +149,7 @@ abbr    if statement
 snippet else 
 options head
 abbr    else statement 
-  else ${1:#:process}
+  else ${1:\{\}}
 
 
 
@@ -160,7 +160,7 @@ abbr    else statement
 snippet elseif 
 abbr    else if statement 
 options head
-  else if ( ${1:#:conditional}) ${2:#:process}
+  else if ( ${1:#:conditional}) ${2:\{\}}
 
 
 
@@ -172,7 +172,7 @@ options head
 snippet switch
 options head
 abbr    switch statement
-  switch( ${1:#:value}) 
+  switch( ${1:#:value}) ${2:\{\}}
 
 
 
@@ -198,14 +198,14 @@ abbr    default statement
 snippet for
 options head
 abbr    for statement
-  for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:#:process}
+  for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:\{\}}
 
 
 #### while statement
 snippet while
 options head
 abbr    while statement
-  while( ${1:#:conditional}) ${2:#:process}
+  while( ${1:#:conditional}) ${2:\{\}}
 
 
 
@@ -215,7 +215,7 @@ snippet do-while
 alias   do
 options head
 abbr    do-while statement
-  do ${2:#:process} while ( ${1:#:conditional});
+  do ${2:\{\}}${3} while ( ${1:#:conditional});
 
 
 
@@ -227,7 +227,7 @@ abbr    do-while statement
 #### struct statement
 snippet struct
 abbr    struct instance statement
-  struct ${1:#:typename} ${2:#:variable_or_process}${0}
+  struct ${1:#:typename} ${2:\{\}}${0}
 
 
 
@@ -237,7 +237,7 @@ abbr    struct instance statement
 #### enum statement
 snippet enum
 abbr    enum instance statement
-  enum ${1:#:typename} ${2:#:variable_or_process} ${0}
+  enum ${1:#:typename} ${2:\{\}}${0}
 
 
 
