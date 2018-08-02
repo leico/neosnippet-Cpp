@@ -62,6 +62,12 @@ abbr template<...>
   template < ${1:#:template_arg}> ${0}
 
 
+#### constexpr
+snippet constexpr
+alias   conex
+abbr constexpr prefix
+  constexpr ${0}
+
 
 #### C++ functions
 
@@ -308,3 +314,12 @@ abbr    const_cast class operator
 
 
 
+#### std :: conditional
+snippet conditional
+alias   cond
+abbr    std :: conditional<Cond, True, False> :: type
+  conditional<
+      ${1:#:Cond}
+    , ${2:#:TrueType}
+    , ${3:#:FalseType}
+  > ${4:\:\: type} ${0}
