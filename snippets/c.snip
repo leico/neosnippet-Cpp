@@ -128,7 +128,7 @@ abbr    return statement
 snippet function
 alias   func
 abbr    function declaration
-  ${1:#:type}${2:#:function name}( ${3:#:args})${4:\{\}}
+  ${1:#:type}${2:#:function name}( ${3:#:args})${4:\{ \$\{5\} \}}
 
 
 
@@ -139,7 +139,7 @@ abbr    function declaration
 snippet if
 options head
 abbr    if statement
-  if( ${1:#:condition}) ${2:\{\}}
+  if( ${1:#:condition}) ${2:\{ \$\{3\} \}}
 
 
 
@@ -160,7 +160,7 @@ abbr    else statement
 snippet elseif 
 abbr    else if statement 
 options head
-  else if ( ${1:#:conditional}) ${2:\{\}}
+  else if ( ${1:#:conditional}) ${2:\{ \$\{3\} \}}
 
 
 
@@ -172,7 +172,7 @@ options head
 snippet switch
 options head
 abbr    switch statement
-  switch( ${1:#:value}) ${2:\{\}}
+  switch( ${1:#:value}) ${2:\{ \$\{3\} \}}
 
 
 
@@ -198,14 +198,14 @@ abbr    default statement
 snippet for
 options head
 abbr    for statement
-  for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:\{\}}
+  for( ${1:#:initialize}; ${2:#:conditional}; ${3:#:transition}) ${4:\{ \$\{5\} \}}
 
 
 #### while statement
 snippet while
 options head
 abbr    while statement
-  while( ${1:#:conditional}) ${2:\{\}}
+  while( ${1:#:conditional}) ${2:\{ \$\{3\} \}}
 
 
 
@@ -227,7 +227,7 @@ abbr    do-while statement
 #### struct statement
 snippet struct
 abbr    struct instance statement
-  struct ${1:#:typename} ${2:\{\}\$\{3\};}${0}
+  struct ${1:#:typename} ${2:\{ \$\{3\} \};}${0}
 
 
 
@@ -237,7 +237,7 @@ abbr    struct instance statement
 #### enum statement
 snippet enum
 abbr    enum instance statement
-  enum ${1:#:typename} ${2:\{\}}${0}
+  enum ${1:#:typename} ${2:\{ \$\{3\} \}}${0}
 
 
 

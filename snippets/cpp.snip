@@ -68,14 +68,14 @@ abbr constexpr prefix
 snippet function_cpp
 alias   funcdcpp
 abbr    C++ function declaration template 
-  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}${5:\{\}}
+  ${1:#:type}${2:#:function_name}( ${3:#:args}) ${4:#:declaration}${5:\{ \$\{6\} \}}
 
 
 snippet function_cpp_auto
 alias   funcdcppauto
 abbr    back end return type declaration
-  ${1:#:prefix}auto ${2:#:function_name}( ${3:#:args}) ${4:#:declaration}-> 
-  ${5:#:return_type} ${6:\{\}}
+  ${1:#:prefix}auto ${2:#:function_name}( ${3:#:args}) ${4:#:declaration}->${5:#:return_type}
+  ${6:\{ \$\{7\} \}}
 
 
 
@@ -110,18 +110,18 @@ abbr    virtual specifier
 #### operator functon
 snippet operator
 abbr    operator function
-  ${1:#:retrun_value}operator${2:#:operator}( ${3:#:args}) ${4:#:declaration}${5:\{\}}
+  ${1:#:retrun_value}operator${2:#:operator}( ${3:#:args}) ${4:#:declaration}${5:\{ \$\{6\} \}}
 
 
 #### constructor
 snippet constructor
 abbr     constructor function
-  ${1:explicit}${2:#:(ClassName ::) Name}( ${3:#:args}) ${4:#:(: initialize parameter)}${5:\{\}}
+  ${1:explicit}${2:#:(ClassName ::) Name}( ${3:#:args}) ${4:#:(: initialize parameter)}${5:\{ \$\{6\} \}}
 
 #### destructor
 snippet destructor
 abbr    destructor function
-  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args}) ${4:\{\}}
+  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args}) ${4:\{ \$\{5\} \}}
 
 
 
@@ -179,7 +179,7 @@ abbr default modifier
 #### class
 snippet class
 abbr    class prefix
-  class ${1:#:class}${2:\{\}\$\{3\};}${0}
+  class ${1:#:class}${2:\{ \$\{3\} \};}${0}
 
 
 
@@ -188,7 +188,7 @@ abbr    class prefix
 snippet namespace
 alias   ns, name
 options head
-  namespace ${1:#:Name} ${2:\{\}}
+  namespace ${1:#:Name} ${2:\{ \$\{3\} \}}
 
 
 
@@ -198,7 +198,7 @@ options head
 snippet for_range
 options head
 abbr    range based for template
-  for(${1:#:Type}${2:#:value}: ${3:#:container}) ${4:\{\}}
+  for(${1:#:Type}${2:#:value}: ${3:#:container}) ${4:\{ \$\{5\} \}}
 
 
 
