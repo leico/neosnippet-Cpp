@@ -121,7 +121,7 @@ abbr     constructor function
 #### destructor
 snippet destructor
 abbr    destructor function
-  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args}) ${4:\{ \$\{5\} \}}
+  ${1:#:ClassName ::}~${2:#:Name}( ${3:#:args})${4:\{ \$\{5\} \}}
 
 
 
@@ -188,7 +188,7 @@ abbr    class prefix
 snippet namespace
 alias   ns, name
 options head
-  namespace ${1:#:Name} ${2:\{ \$\{3\} \}}
+  namespace ${1:#:Name}${2:\{ \$\{3\} \}}
 
 
 
@@ -198,7 +198,7 @@ options head
 snippet for_range
 options head
 abbr    range based for template
-  for(${1:#:Type}${2:#:value}: ${3:#:container}) ${4:\{ \$\{5\} \}}
+  for(${1:#:Type}${2:#:value}: ${3:#:container})${4:\{ \$\{5\} \}}
 
 
 
